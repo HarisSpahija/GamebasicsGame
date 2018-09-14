@@ -6,16 +6,16 @@ Wij vinden het belangrijk dat je code leesbaar is, in het Engels geschreven, goe
 
 Maak een mini-simulator waarmee je een poule, bestaande uit 4 verschillende teams, kunt simuleren.
 
-Maak een nieuwe applicatie / website.
-Simuleer hierin de wedstrijden en uitslagen van een poule van 4 teams. Er zijn drie rondes, dus zes wedstrijden in totaal.
-Houd er rekening mee dat ieder team zijn eigen sterkte heeft (welke spelers in het team spelen, wie er scoort e.d. is niet zo belangrijk in deze opdracht). Dit willen we terugzien in de eindstand (als we heel vaak de poule simuleren, eindigen de betere teams vaker boven de slechtere teams).
-De "wedstrijdsimulatie" mag je zo simpel of uitgebreid maken als je zelf wilt. Tip: het gaat ons om de uitslagen en de poulestand, een bonus is te verdienen als je laat zien hoe de simulatie is uit te breiden met nieuwe features.
-Het grafisch eindresultaat is minimaal de stand van de poule en wat de onderlinge uitslagen waren. Belangrijk: aan het eind moeten we kunnen zien welke teams doorgaan naar de knock-out fase, denk aan de sortering:
-* Punten
-* Doelsaldo
-* Doelpunten voor
-* Doelpunten tegen
-* Onderling resultaat
+  * Maak een nieuwe applicatie / website.
+  * Simuleer hierin de wedstrijden en uitslagen van een poule van 4 teams. Er zijn drie rondes, dus zes wedstrijden in totaal.
+  * Houd er rekening mee dat ieder team zijn eigen sterkte heeft (welke spelers in het team spelen, wie er scoort e.d. is niet zo belangrijk in deze opdracht). Dit willen we terugzien in de eindstand (als we heel vaak de poule simuleren, eindigen de betere teams vaker boven de slechtere teams).
+  * De "wedstrijdsimulatie" mag je zo simpel of uitgebreid maken als je zelf wilt. Tip: het gaat ons om de uitslagen en de poulestand, een bonus is te verdienen als je laat zien hoe de simulatie is uit te breiden met nieuwe features.
+  * Het grafisch eindresultaat is minimaal de stand van de poule en wat de onderlinge uitslagen waren. Belangrijk: aan het eind moeten we kunnen zien welke teams doorgaan naar de knock-out fase, denk aan de sortering:
+- [X] Punten
+- [ ] Doelsaldo
+- [ ] Doelpunten voor
+- [ ] Doelpunten tegen
+- [X] Onderling resultaat
 
 Bedenk goed voor welke vacature je solliciteert. Is dit voor Android? Maak dan je opdracht in Android Studio. Solliciteer je voor web? Lever dan een website op. Is de vacature meer gericht op de backend? Laat dan zien wat je in huis hebt op het gebied van .NET en concentreer je op de simulatie en niet op het grafisch eindresultaat.
 
