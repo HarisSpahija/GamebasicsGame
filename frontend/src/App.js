@@ -15,6 +15,8 @@ class App extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.resetMatch = this.resetMatch.bind(this);
     this.simulatePoule = this.simulatePoule.bind(this);
+    this.handleTeamSelection = this.handleTeamSelection.bind(this);
+
   }
 
   componentDidMount = () => {
@@ -31,7 +33,7 @@ class App extends Component {
       .then(res => res.json())
       .then(match => this.setState({ match }));
 
-      fetch("/simulate/all-teams")
+    fetch("/simulate/all-teams")
       .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
@@ -41,7 +43,7 @@ class App extends Component {
 
   resetMatch() {
     fetch("/simulate/match-reset")
-    .then(res => res.json())
+      .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
         console.log(this.state);
@@ -50,11 +52,21 @@ class App extends Component {
 
   simulatePoule() {
     fetch("/simulate/poule")
-    .then(res => res.json())
+      .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
         console.log(this.state);
       });
+  }
+
+  handleTeamSelection(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    //Function to post team 1 and team 2.
+
+    console.log(this.state);   
   }
 
   render() {
@@ -64,21 +76,22 @@ class App extends Component {
       return (
         <div className="App">
           <div>
-            <button onClick={this.simulateMatch}>Simulate a match</button>
-            <button onClick={this.resetMatch}>Reset current Poule</button>
-            <button onClick={this.simulatePoule}>Simulate a poule</button>
-              
-            <h1>
-            {this.state.match.data.map(match => (
-              <div>
-                {match.name}
-              </div>
-            ))}
-            </h1>
-              
-              <h2>{this.state.match.result}</h2>
-              
+            <form>
+                {this.state.poule.map(team => (
+                  <label>{team.name}
+                    <input type="checkbox" name={team.name} checked={this.state.isPicked} onChange={this.handleTeamSelection}/>
+                  </label>
+                )
+                )}
+            </form>
 
+            <h1>
+              {this.state.match.data.map(match => (
+                <div>{match.name}</div>
+              ))}
+            </h1>
+
+            <h2>{this.state.match.result}</h2>
           </div>
 
           <div>
@@ -94,10 +107,15 @@ class App extends Component {
             <h1>Poule:</h1>
             {this.state.poule.map(team => (
               <div>
-                {team.name} - {team.power} - Wins: {team.wins} - Losses {team.loss} - Draws {team.draws} - Points: {team.points}
+                {team.name} - {team.power} - Wins: {team.wins} - Losses{" "}
+                {team.loss} - Draws {team.draws} - Points: {team.points}
               </div>
             ))}
           </div>
+
+          <button onClick={this.simulateMatch}>Simulate a match</button>
+          <button onClick={this.resetMatch}>Reset current Poule</button>
+          <button onClick={this.simulatePoule}>Simulate a poule</button>
         </div>
       );
     }
