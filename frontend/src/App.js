@@ -63,7 +63,7 @@ class App extends Component {
             <h1>Poule:</h1>
             {this.state.poule.map(Poule => (
               <div>
-                {Poule.name} - {Poule.power} - Wins: {Poule.wins}
+                {Poule.name} - {Poule.power} - Wins: {Poule.wins} - Losses {Poule.loss} - Draws {Poule.draws}
               </div>
             ))}
           </div>

@@ -12,12 +12,16 @@ function playMatch(matchTeams) {
   function checkWinner(winChance, team1, team2) {
     if (winChance === 0.5) {
       result = "Match resulted in draw";
+      matchTeams[0].draws = matchTeams[0].draws + 1;
+      matchTeams[1].draws = matchTeams[1].draws + 1;
     } else if (winChance > 0.5) {
       result = "Match has been won by " + team1;
       matchTeams[0].wins = matchTeams[0].wins + 1;
+      matchTeams[1].loss = matchTeams[1].loss + 1;
     } else {
       result = "Match has been won by " + team2;
       matchTeams[1].wins = matchTeams[1].wins + 1;
+      matchTeams[0].loss = matchTeams[0].loss + 1;
     }
     return result;
   }
@@ -27,6 +31,12 @@ function playMatch(matchTeams) {
 
   team1Wins = matchTeams[0].wins;
   team2Wins = matchTeams[1].wins;
+
+  team1Losses = matchTeams[0].loss;
+  team2Losses = matchTeams[1].loss;
+
+  team1Draws = matchTeams[0].draw;
+  team2Draws = matchTeams[1].draw;
 
   winChance = (team1Power / team2Power) * 0.5;
   result = checkWinner(winChance, team1, team2);
@@ -52,22 +62,30 @@ const Poule = [
   {
     name: "Ajax",
     power: 100,
-    wins: 0
+    wins: 0,
+    loss: 0,
+    draws: 0,
   },
   {
     name: "PSV",
     power: 100,
-    wins: 0
+    wins: 0,
+    loss: 0,
+    draws: 0,
   },
   {
     name: "Feyenoord",
     power: 98,
-    wins: 0
+    wins: 0,
+    loss: 0,
+    draws: 0,
   },
   {
     name: "PEC Zwolle",
     power: 95,
-    wins: 0
+    wins: 0,
+    loss: 0,
+    draws: 0,
   }
 ];
 
