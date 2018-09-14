@@ -13,6 +13,8 @@ class App extends Component {
     };
     this.simulateMatch = this.simulateMatch.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.resetMatch = this.resetMatch.bind(this);
+    this.simulatePoule = this.simulatePoule.bind(this);
   }
 
   componentDidMount = () => {
@@ -37,6 +39,24 @@ class App extends Component {
       });
   }
 
+  resetMatch() {
+    fetch("/simulate/match-reset")
+    .then(res => res.json())
+      .then(poule => {
+        this.setState({ poule });
+        console.log(this.state);
+      });
+  }
+
+  simulatePoule() {
+    fetch("/simulate/poule")
+    .then(res => res.json())
+      .then(poule => {
+        this.setState({ poule });
+        console.log(this.state);
+      });
+  }
+
   render() {
     if (!this.state.match.length === 0) {
       return <div />;
@@ -45,7 +65,8 @@ class App extends Component {
         <div className="App">
           <div>
             <button onClick={this.simulateMatch}>Simulate a match</button>
-            
+            <button onClick={this.resetMatch}>Reset current Poule</button>
+            <button onClick={this.simulatePoule}>Simulate a poule</button>
               <h1>{this.state.match.result}</h1>
 
           </div>
@@ -61,9 +82,9 @@ class App extends Component {
           {/* Entire poule */}
           <div>
             <h1>Poule:</h1>
-            {this.state.poule.map(Poule => (
+            {this.state.poule.map(team => (
               <div>
-                {Poule.name} - {Poule.power} - Wins: {Poule.wins} - Losses {Poule.loss} - Draws {Poule.draws}
+                {team.name} - {team.power} - Wins: {team.wins} - Losses {team.loss} - Draws {team.draws} - Points: {team.points}
               </div>
             ))}
           </div>
