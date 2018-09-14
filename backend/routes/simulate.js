@@ -52,7 +52,7 @@ function playMatch(matchTeams) {
 
   team1Draws = matchTeams[0].draw;
   team2Draws = matchTeams[1].draw;
-
+  
   team1Points = matchTeams[0].points;
   team2Points = matchTeams[1].points;
 
@@ -188,7 +188,6 @@ router.get("/match-reset", function(req, res) {
       ];
 
     res.send(poule);
-  });
-
+});
 
 module.exports = router;

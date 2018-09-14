@@ -67,7 +67,17 @@ class App extends Component {
             <button onClick={this.simulateMatch}>Simulate a match</button>
             <button onClick={this.resetMatch}>Reset current Poule</button>
             <button onClick={this.simulatePoule}>Simulate a poule</button>
-              <h1>{this.state.match.result}</h1>
+              
+            <h1>
+            {this.state.match.data.map(match => (
+              <div>
+                {match.name}
+              </div>
+            ))}
+            </h1>
+              
+              <h2>{this.state.match.result}</h2>
+              
 
           </div>
 
