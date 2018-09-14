@@ -1,40 +1,76 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
 class App extends Component {
-  state = {
-    match: [],
-    result: []
+  constructor() {
+    super();
+    this.state = {
+      match: {
+        data: [],
+        result: null
+      },
+      poule: []
+    };
+    this.simulateMatch = this.simulateMatch.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-  componentDidMount() {
-    fetch('/simulate')
-    .then(res => res.json())
-    .then(match => this.setState({match}))
+  componentDidMount = () => {
+    fetch("/simulate/all-teams")
+      .then(res => res.json())
+      .then(poule => {
+        this.setState({ poule });
+        console.log(this.state);
+      });
+  };
 
-    fetch('/simulate/result')
-    .then(res => res.json())
-    .then(result => this.setState({result}))
+  simulateMatch() {
+    fetch("/simulate/match-details")
+      .then(res => res.json())
+      .then(match => this.setState({ match }));
+
+      fetch("/simulate/all-teams")
+      .then(res => res.json())
+      .then(poule => {
+        this.setState({ poule });
+        console.log(this.state);
+      });
   }
 
   render() {
-    return (
-      <div className="App">
+    if (!this.state.match.length === 0) {
+      return <div />;
+    } else {
+      return (
+        <div className="App">
+          <div>
+            <button onClick={this.simulateMatch}>Simulate a match</button>
+            
+              <h1>{this.state.match.result}</h1>
 
-        <div>{this.state.result.map(result => <h1>{result.result}</h1>)}</div>
+          </div>
 
-        <div>{this.state.match.map(match =>
-        <div>Name: {match.name} Power: {match.power}</div>
-        )}
+          <div>
+            {this.state.match.data.map(match => (
+              <div>
+                Name: {match.name} Power: {match.power}
+              </div>
+            ))}
+          </div>
+
+          {/* Entire poule */}
+          <div>
+            <h1>Poule:</h1>
+            {this.state.poule.map(Poule => (
+              <div>
+                {Poule.name} - {Poule.power} - Wins: {Poule.wins}
+              </div>
+            ))}
+          </div>
         </div>
-        <button>
-          Play new match
-        </button>
-      </div>
-    );
+      );
+    }
   }
 }
 
 export default App;
-
-// [[[{"name":"PEC Zwolle","power":95},{"name":"PSV","power":100}],"Match has been won by PSV"]]
