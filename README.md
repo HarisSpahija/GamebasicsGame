@@ -16,6 +16,7 @@ Het grafisch eindresultaat is minimaal de stand van de poule en wat de onderling
 * Doelpunten voor
 * Doelpunten tegen
 * Onderling resultaat
+
 Bedenk goed voor welke vacature je solliciteert. Is dit voor Android? Maak dan je opdracht in Android Studio. Solliciteer je voor web? Lever dan een website op. Is de vacature meer gericht op de backend? Laat dan zien wat je in huis hebt op het gebied van .NET en concentreer je op de simulatie en niet op het grafisch eindresultaat.
 
 Graag zouden wij de opdracht binnen een week van je ontvangen. Mocht je voorzien dat dit niet gaat lukken dan horen we dat het liefst zo snel mogelijk. Als je dit op de inleverdatum pas laat weten nemen we dat mee in onze beoordeling. Zorg dat je code en een werkende applicatie van GitHub te downloaden zijn. Nadat we de opdracht hebben beoordeeld, laten we je weten of er een gesprek volgt.
