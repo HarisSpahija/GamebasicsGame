@@ -9,12 +9,15 @@ class App extends Component {
         data: [],
         result: null
       },
-      poule: []
+      poule: [],
+      teams: []
     };
     this.simulateMatch = this.simulateMatch.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.resetMatch = this.resetMatch.bind(this);
     this.simulatePoule = this.simulatePoule.bind(this);
+    this.createTeam = this.createTeam.bind(this);
+
   }
 
   componentDidMount = () => {
@@ -57,6 +60,14 @@ class App extends Component {
       });
   }
 
+  createTeam(){
+    fetch("/simulate/make-team")
+    .then(res => res.json())
+    .then(teams => {
+      this.setState({ teams })
+    })
+  }
+
   render() {
     if (!this.state.match.length === 0) {
       return <div />;
@@ -67,6 +78,7 @@ class App extends Component {
             <button onClick={this.simulateMatch}>Simulate a match</button>
             <button onClick={this.resetMatch}>Reset current Poule</button>
             <button onClick={this.simulatePoule}>Simulate a poule</button>
+            <button onClick={this.createTeam}>Create a team</button>
               
             <h1>
             {this.state.match.data.map(match => (

@@ -1,9 +1,6 @@
 const express = require("express");
 var router = express.Router();
-
-const CPoule = require("../classes/Poule")
-const CTeam = require("../classes/Team")
-
+const Team = require("../classes/Team")
 
 function playMatch(matchTeams) {
   team1 = matchTeams[0].name;
@@ -150,6 +147,10 @@ router.get("/all-teams", function(req, res) {
   res.send(poule);
 });
 
+router.get("/make-team", function(req, res) {
+  ajax = new Team("Ajax", 100)
+  res.send(ajax)
+})
 router.get("/match-reset", function(req, res) {
 
     poule = [
