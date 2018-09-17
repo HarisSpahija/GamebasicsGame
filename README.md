@@ -22,3 +22,5 @@ Bedenk goed voor welke vacature je solliciteert. Is dit voor Android? Maak dan j
 Graag zouden wij de opdracht binnen een week van je ontvangen. Mocht je voorzien dat dit niet gaat lukken dan horen we dat het liefst zo snel mogelijk. Als je dit op de inleverdatum pas laat weten nemen we dat mee in onze beoordeling. Zorg dat je code en een werkende applicatie van GitHub te downloaden zijn. Nadat we de opdracht hebben beoordeeld, laten we je weten of er een gesprek volgt.
 
 Als je vragen hebt, schroom niet om ze te stellen. Heel veel succes!
+
+PS. Ik ben goed in tafelvoetbal.
