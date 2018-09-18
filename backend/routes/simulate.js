@@ -1,6 +1,9 @@
 const express = require("express");
 var router = express.Router();
 const Team = require("../classes/Team")
+const Poule = require("../classes/Poule")
+
+let poule = new Poule();
 
 function playMatch(matchTeams) {
   team1 = matchTeams[0].name;
@@ -87,46 +90,11 @@ function playPoule(poule) {
     playMatch([poule[1], poule[3]])
 }
 
-let poule = [
-  {
-    name: "Ajax",
-    power: 100,
-    wins: 0,
-    loss: 0,
-    draws: 0,
-    points: 0,
-  },
-  {
-    name: "PSV",
-    power: 100,
-    wins: 0,
-    loss: 0,
-    draws: 0,
-    points: 0,
-  },
-  {
-    name: "Feyenoord",
-    power: 95,
-    wins: 0,
-    loss: 0,
-    draws: 0,
-    points: 0,
-  },
-  {
-    name: "PEC Zwolle",
-    power: 92,
-    wins: 0,
-    loss: 0,
-    draws: 0,
-    points: 0,
-  }
-];
-
 router.get("/match-details", function(req, res) {
   chosenTeams = pickTeams(poule);
   match = playMatch(chosenTeams);
 
-  console.log(result)
+  console.log(poule)
 
   res.json({
     data: [
@@ -139,7 +107,6 @@ router.get("/match-details", function(req, res) {
 
 router.get("/poule", function(req, res) {
     playPoule(poule)
-
     res.send(poule);
   });
 
@@ -147,48 +114,9 @@ router.get("/all-teams", function(req, res) {
   res.send(poule);
 });
 
-router.get("/make-team", function(req, res) {
-  ajax = new Team("Ajax", 100)
-  res.send(ajax)
-})
-router.get("/match-reset", function(req, res) {
-
-    poule = [
-        {
-          name: "Ajax",
-          power: 100,
-          wins: 0,
-          loss: 0,
-          draws: 0,
-          points: 0,
-        },
-        {
-          name: "PSV",
-          power: 100,
-          wins: 0,
-          loss: 0,
-          draws: 0,
-          points: 0,
-        },
-        {
-          name: "Feyenoord",
-          power: 98,
-          wins: 0,
-          loss: 0,
-          draws: 0,
-          points: 0,
-        },
-        {
-          name: "PEC Zwolle",
-          power: 95,
-          wins: 0,
-          loss: 0,
-          draws: 0,
-          points: 0,
-        }
-      ];
-
-    res.send(poule);
+router.get("/poule-reset", function(req, res) {
+    poule.pouleReset()
+    res.send(poule)
 });
 
 module.exports = router;
