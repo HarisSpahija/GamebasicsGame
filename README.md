@@ -1,3 +1,5 @@
+https://trello.com/b/NQyOtOv4/gamebasics-opdracht
+
 Hierbij ontvang je onze opdracht. Klasse dat je hier je tijd in wilt stoppen!
 
 Wij vinden het belangrijk dat je code leesbaar is, in het Engels geschreven, goed gestructureerd en voorzien van commentaar. Let erop dat je code uitbreidbaar en onderhoudbaar is, niet alleen voor jezelf maar ook begrijpelijk voor anderen. Uiteraard gaat het er ook om dat de werking van het eindresultaat klopt met de specs.
