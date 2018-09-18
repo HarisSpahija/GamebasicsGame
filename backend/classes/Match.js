@@ -18,4 +18,4 @@ class Match {
     }
 }
 
-modules.export = Match;
+module.exports = Match;
