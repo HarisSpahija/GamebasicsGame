@@ -25,6 +25,13 @@ class Team {
     calcPowerBonus(){
         return (powerBonus = Math.round(Math.random() * 10))
     }
+
+    resetScore() {
+        this.wins = 0;
+        this.loss = 0;
+        this.draws = 0;
+        this.points = 0;
+    }
 }
 
 module.exports = Team
