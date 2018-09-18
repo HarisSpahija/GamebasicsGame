@@ -28,11 +28,7 @@ class App extends Component {
   };
 
   simulateMatch() {
-    fetch("/simulate/match-details")
-      .then(res => res.json())
-      .then(match => this.setState({ match }));
-
-      fetch("/simulate/all-teams")
+      fetch("/simulate/simulate-match")
       .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
@@ -50,7 +46,7 @@ class App extends Component {
   }
 
   simulatePoule() {
-    fetch("/simulate/poule")
+    fetch("/simulate/simulate-poule")
     .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
