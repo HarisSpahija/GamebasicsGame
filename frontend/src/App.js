@@ -9,11 +9,12 @@ class App extends Component {
         data: [],
         result: null
       },
-      poule: []
+      poule: null,
+      teams: null
     };
     this.simulateMatch = this.simulateMatch.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
-    this.resetMatch = this.resetMatch.bind(this);
+    this.resetPoule = this.resetPoule.bind(this);
     this.simulatePoule = this.simulatePoule.bind(this);
   }
 
@@ -27,11 +28,7 @@ class App extends Component {
   };
 
   simulateMatch() {
-    fetch("/simulate/match-details")
-      .then(res => res.json())
-      .then(match => this.setState({ match }));
-
-      fetch("/simulate/all-teams")
+      fetch("/simulate/simulate-match")
       .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
@@ -39,8 +36,8 @@ class App extends Component {
       });
   }
 
-  resetMatch() {
-    fetch("/simulate/match-reset")
+  resetPoule() {
+    fetch("/simulate/poule-reset")
     .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
@@ -49,7 +46,7 @@ class App extends Component {
   }
 
   simulatePoule() {
-    fetch("/simulate/poule")
+    fetch("/simulate/simulate-poule")
     .then(res => res.json())
       .then(poule => {
         this.setState({ poule });
@@ -65,7 +62,7 @@ class App extends Component {
         <div className="App">
           <div>
             <button onClick={this.simulateMatch}>Simulate a match</button>
-            <button onClick={this.resetMatch}>Reset current Poule</button>
+            <button onClick={this.resetPoule}>Reset current Poule</button>
             <button onClick={this.simulatePoule}>Simulate a poule</button>
               
             <h1>
@@ -81,23 +78,23 @@ class App extends Component {
 
           </div>
 
-          <div>
+          {/* <div>
             {this.state.match.data.map(match => (
               <div>
                 Name: {match.name} Power: {match.power}
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Entire poule */}
-          <div>
+          {/* <div>
             <h1>Poule:</h1>
             {this.state.poule.map(team => (
               <div>
                 {team.name} - {team.power} - Wins: {team.wins} - Losses {team.loss} - Draws {team.draws} - Points: {team.points}
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       );
     }
